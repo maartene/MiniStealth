@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DEF9A009279A9F94009F0244 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A008279A9F94009F0244 /* AppDelegate.swift */; };
-		DEF9A00B279A9F94009F0244 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEF9A00A279A9F94009F0244 /* GameScene.sks */; };
-		DEF9A00D279A9F94009F0244 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = DEF9A00C279A9F94009F0244 /* Actions.sks */; };
 		DEF9A00F279A9F94009F0244 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A00E279A9F94009F0244 /* GameScene.swift */; };
 		DEF9A011279A9F94009F0244 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A010279A9F94009F0244 /* ViewController.swift */; };
 		DEF9A013279A9F96009F0244 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEF9A012279A9F96009F0244 /* Assets.xcassets */; };
@@ -17,6 +15,7 @@
 		DEF9A021279A9F96009F0244 /* MiniStealthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A020279A9F96009F0244 /* MiniStealthTests.swift */; };
 		DEF9A02B279A9F96009F0244 /* MiniStealthUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A02A279A9F96009F0244 /* MiniStealthUITests.swift */; };
 		DEF9A02D279A9F96009F0244 /* MiniStealthUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A02C279A9F96009F0244 /* MiniStealthUITestsLaunchTests.swift */; };
+		DEF9A03A279AA0E5009F0244 /* SKonsole.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A039279AA0E5009F0244 /* SKonsole.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +38,6 @@
 /* Begin PBXFileReference section */
 		DEF9A005279A9F94009F0244 /* MiniStealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniStealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF9A008279A9F94009F0244 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DEF9A00A279A9F94009F0244 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		DEF9A00C279A9F94009F0244 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		DEF9A00E279A9F94009F0244 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		DEF9A010279A9F94009F0244 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DEF9A012279A9F96009F0244 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +48,7 @@
 		DEF9A026279A9F96009F0244 /* MiniStealthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniStealthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF9A02A279A9F96009F0244 /* MiniStealthUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniStealthUITests.swift; sourceTree = "<group>"; };
 		DEF9A02C279A9F96009F0244 /* MiniStealthUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniStealthUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DEF9A039279AA0E5009F0244 /* SKonsole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKonsole.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				DEF9A008279A9F94009F0244 /* AppDelegate.swift */,
-				DEF9A00A279A9F94009F0244 /* GameScene.sks */,
-				DEF9A00C279A9F94009F0244 /* Actions.sks */,
 				DEF9A00E279A9F94009F0244 /* GameScene.swift */,
 				DEF9A010279A9F94009F0244 /* ViewController.swift */,
 				DEF9A012279A9F96009F0244 /* Assets.xcassets */,
 				DEF9A014279A9F96009F0244 /* Main.storyboard */,
 				DEF9A017279A9F96009F0244 /* MiniStealth.entitlements */,
+				DEF9A039279AA0E5009F0244 /* SKonsole.swift */,
 			);
 			path = MiniStealth;
 			sourceTree = "<group>";
@@ -234,9 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEF9A00B279A9F94009F0244 /* GameScene.sks in Resources */,
 				DEF9A013279A9F96009F0244 /* Assets.xcassets in Resources */,
-				DEF9A00D279A9F94009F0244 /* Actions.sks in Resources */,
 				DEF9A016279A9F96009F0244 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +260,7 @@
 				DEF9A011279A9F94009F0244 /* ViewController.swift in Sources */,
 				DEF9A00F279A9F94009F0244 /* GameScene.swift in Sources */,
 				DEF9A009279A9F94009F0244 /* AppDelegate.swift in Sources */,
+				DEF9A03A279AA0E5009F0244 /* SKonsole.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
