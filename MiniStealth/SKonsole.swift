@@ -2,7 +2,7 @@
 //  SKonsole.swift
 //  MiniStealth
 //
-//  Created by Maarten Engels on 21/01/2022.
+//  Created by Maarten Engels on 03/02/2022.
 //
 
 import Foundation
@@ -10,59 +10,58 @@ import SpriteKit
 
 final class SKonsole: SKNode {
     
-    private let characterTranslationTable: [Character: String] = [
-        "A": "aa",
-        "B": "bb",
-        "C": "cc",
-        "D": "dd",
-        "E": "ee",
-        "F": "ff",
-        "G": "gg",
-        "H": "hh",
-        "I": "ii",
-        "J": "jj",
-        "K": "kk",
-        "L": "ll",
-        "M": "mm",
-        "N": "nn",
-        "O": "oo",
-        "P": "pp",
-        "Q": "qq",
-        "R": "rr",
-        "S": "ss",
-        "T": "tt",
-        "U": "uu",
-        "V": "vv",
-        "W": "ww",
-        "X": "xx",
-        "Y": "yy",
-        "Z": "zz",
-        
-        ",": "comma",
-        "!": "exclamationMark",
-        " ": "space",
-        ".": "period",
-        ":": "collon",
-        ")": "closeBrackets",
-        "(": "openBrackets",
-        "?": "questionMark",
-        "@": "at",
-        "'": "singleQuote",
-        "-": "hyphen",
-        "_": "underscore",
-        "=": "equals"
-    ]
-    
     let rowCount: Int
     let colCount: Int
     
-    private var fgNodes = [SKSpriteNode]()
+    private let characterTranslationTable: [Character: String] = [
+           "A": "aa",
+           "B": "bb",
+           "C": "cc",
+           "D": "dd",
+           "E": "ee",
+           "F": "ff",
+           "G": "gg",
+           "H": "hh",
+           "I": "ii",
+           "J": "jj",
+           "K": "kk",
+           "L": "ll",
+           "M": "mm",
+           "N": "nn",
+           "O": "oo",
+           "P": "pp",
+           "Q": "qq",
+           "R": "rr",
+           "S": "ss",
+           "T": "tt",
+           "U": "uu",
+           "V": "vv",
+           "W": "ww",
+           "X": "xx",
+           "Y": "yy",
+           "Z": "zz",
+           
+           ",": "comma",
+           "!": "exclamationMark",
+           " ": "space",
+           ".": "period",
+           ":": "collon",
+           ")": "closeBrackets",
+           "(": "openBrackets",
+           "?": "questionMark",
+           "@": "at",
+           "'": "singleQuote",
+           "-": "hyphen",
+           "_": "underscore",
+           "=": "equals"
+       ]
     
+    private var fgNodes = [SKSpriteNode]()
     private var textureCache = [String: SKTexture]()
     
     init(colCount: Int, rowCount: Int) {
-        self.colCount = colCount
         self.rowCount = rowCount
+        self.colCount = colCount
         
         super.init()
         
@@ -80,7 +79,6 @@ final class SKonsole: SKNode {
                 fgNodes.append(fgNode)
             }
         }
-        
     }
     
     func putChar(_ character: Character, at position: Vector, fgColor: SKColor = .white) {
@@ -108,13 +106,14 @@ final class SKonsole: SKNode {
         }
     }
     
+    func clear() {
+        for node in fgNodes {
+            node.texture = nil
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-struct Vector {
-    var x: Int
-    var y: Int
 }

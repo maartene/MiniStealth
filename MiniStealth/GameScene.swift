@@ -2,15 +2,16 @@
 //  GameScene.swift
 //  MiniStealth
 //
-//  Created by Maarten Engels on 21/01/2022.
+//  Created by Maarten Engels on 03/02/2022.
 //
 
 import SpriteKit
+import GameplayKit
 
 class GameScene: SKScene {
+    
     let COL_COUNT = 80
     let ROW_COUNT = 44
-    
     
     var console: SKonsole!
     
@@ -20,12 +21,18 @@ class GameScene: SKScene {
         
         addChild(console)
         
-        console.putChar("1", at: Vector(x: 20,y: 20), fgColor: .green)
-        console.putString("Hello, World!", at: Vector(x: 1, y: 5))
+        console.putString("Hello, World!", at: Vector(x: 3, y: 5))
     }
+    
+    override func keyDown(with event: NSEvent) {
+        switch event.keyCode {
+        default:
+            print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+        }
+    }
+    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
-        
     }
 }

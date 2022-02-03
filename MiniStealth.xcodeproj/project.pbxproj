@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DEDD86A627ABDF3E00BB2AB6 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDD86A527ABDF3E00BB2AB6 /* Vector.swift */; };
 		DEF9A009279A9F94009F0244 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A008279A9F94009F0244 /* AppDelegate.swift */; };
 		DEF9A00F279A9F94009F0244 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A00E279A9F94009F0244 /* GameScene.swift */; };
 		DEF9A011279A9F94009F0244 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF9A010279A9F94009F0244 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DEDD86A527ABDF3E00BB2AB6 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		DEF9A005279A9F94009F0244 /* MiniStealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniStealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEF9A008279A9F94009F0244 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEF9A00E279A9F94009F0244 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				DEF9A012279A9F96009F0244 /* Assets.xcassets */,
 				DEF9A014279A9F96009F0244 /* Main.storyboard */,
 				DEF9A017279A9F96009F0244 /* MiniStealth.entitlements */,
+				DEDD86A527ABDF3E00BB2AB6 /* Vector.swift */,
 				DEF9A039279AA0E5009F0244 /* SKonsole.swift */,
 			);
 			path = MiniStealth;
@@ -259,6 +262,7 @@
 			files = (
 				DEF9A011279A9F94009F0244 /* ViewController.swift in Sources */,
 				DEF9A00F279A9F94009F0244 /* GameScene.swift in Sources */,
+				DEDD86A627ABDF3E00BB2AB6 /* Vector.swift in Sources */,
 				DEF9A009279A9F94009F0244 /* AppDelegate.swift in Sources */,
 				DEF9A03A279AA0E5009F0244 /* SKonsole.swift in Sources */,
 			);
