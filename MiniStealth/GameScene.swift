@@ -21,7 +21,14 @@ class GameScene: SKScene {
         
         addChild(console)
         
-        console.putString("Hello, World!", at: Vector(x: 3, y: 5))
+        console.clear()
+        
+        // draw a string
+        console.putString("Hello, World!", at: Vector(x: 3, y: 5), fgColor: .green, bgColor: SKColor.red)
+        
+        // draw a player over a map tile
+        console.putForeground("Player", at: Vector(x: 3, y: 8), color: SKColor.green)
+        console.putBackground("square_16x16_25pct", at: Vector(x: 3, y: 8), color: SKColor.yellow)
     }
     
     override func keyDown(with event: NSEvent) {
