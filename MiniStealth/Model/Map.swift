@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Map struct
 struct Map {
     static let mapStrings = [
 """
@@ -77,6 +78,7 @@ struct Map {
     }
 }
 
+// MARK: Cell enum
 enum Cell: Character {
     case void = " "
     case wall = "#"
@@ -90,6 +92,15 @@ enum Cell: Character {
             return "Wall"
         case .floor:
             return "Floor"
+        }
+    }
+    
+    var enterable: Bool {
+        switch self {
+        case .floor:
+            return true
+        default:
+            return false
         }
     }
 }

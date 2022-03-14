@@ -48,9 +48,30 @@ class GameScene: SKScene {
     }
     
     override func keyDown(with event: NSEvent) {
+        var direction = Vector.zero
+        
         switch event.keyCode {
+        // left arrow
+        case 123:
+            direction = Vector.left
+        // right arrow
+        case 124:
+            direction = Vector.right
+        // down arrow
+        case 125:
+            direction = Vector.down
+        // up arrow
+        case 126:
+            direction = Vector.up
+            
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
+        }
+        
+        if world.player.tryMove(direction: direction, in: world.map) {
+            showWorld()
+        } else {
+            console.putString("BOINK!", at: Vector.zero, fgColor: .white, bgColor: .red)
         }
     }
     

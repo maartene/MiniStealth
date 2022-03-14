@@ -10,7 +10,7 @@ import GameplayKit
 
 class MSEntity: GKEntity {
     
-    var position = Vector.zero
+    var position: Vector
     let name: String
     
     init(name: String, startPosition: Vector = .zero) {
@@ -24,4 +24,14 @@ class MSEntity: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func tryMove(direction: Vector, in map: Map) -> Bool {
+        let newPosition = position + direction
+        
+        if map.getCell(newPosition).enterable {
+            position = newPosition
+            return true
+        } else {
+            return false
+        }
+    }
 }
