@@ -196,4 +196,13 @@ enum Visibility {
     case notVisited                 // a tile that was never visited
     case visited                    // a tile that was once visible, but no longer
     case visible(lit: Double)       // a tile we can currently see
+    
+    var isVisible: Bool {
+            switch self {
+            case .visible:
+                return true
+            default:
+                return false
+            }
+        }
 }
