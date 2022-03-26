@@ -8,7 +8,7 @@
 import Foundation
 import GameplayKit
 
-class MSEntity: GKEntity {
+class MSEntity: GKEntity, WorldUpdateable {
     
     var position: Vector
     let name: String
@@ -33,5 +33,26 @@ class MSEntity: GKEntity {
         } else {
             return false
         }
+    }
+        
+    var worldUpdateableComponents: [WorldUpdateable] {
+        components.compactMap { $0 as? WorldUpdateable }
+    }
+    
+    func update(in world: World) {
+        for component in worldUpdateableComponents {
+            component.update(in: world)
+        }
+    }
+}
+
+
+extension GKComponent {
+    var msEntity: MSEntity {
+        guard let msEntity = entity as? MSEntity else {
+            fatalError("You should only use MSEntities in this game.")
+        }
+        
+        return msEntity
     }
 }

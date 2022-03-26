@@ -17,6 +17,7 @@ final class World {
         map = Map(mapString: mapString)
         
         player = MSEntity(name: "Player", startPosition: map.playerStartPosition)
+        player.addComponent(VisibilityComponent(visionRange: 10))
         entities.append(player)
         
         let target = MSEntity(name: "Treasure", startPosition: map.targetPosition)
@@ -27,5 +28,11 @@ final class World {
             entities.append(enemy)
         }
         
+    }
+    
+    func update() {
+        for entity in entities {
+            entity.update(in: self)
+        }
     }
 }

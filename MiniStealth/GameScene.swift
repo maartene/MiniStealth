@@ -33,17 +33,36 @@ class GameScene: SKScene {
     func showWorld() {
         console.clear()
         
-        // NOTE: Copy "square_16x16_25pct" to "Floor"
+        world.update()
         
-        for tile in world.map.cells {
-            if tile.value != .void {
-                console.putBackground(tile.value.name, at: tile.key, color: SKColor(calibratedHue: 0.5, saturation: 1, brightness: 1, alpha: 1))
+        if let vc = world.player.component(ofType: VisibilityComponent.self) {
+            print(vc.tileVisibility)
+            
+            for tile in vc.tileVisibility {
+                let mapCell = world.map.getCell(tile.key)
+                
+                switch tile.value {
+                case .notVisited:
+                    break
+                case .visited:
+                    console.putBackground(mapCell.name, at: tile.key, color: .darkGray)
+                case .visible(let lit):
+                    console.putBackground(mapCell.name, at: tile.key, color: SKColor(calibratedHue: 0.5, saturation: 1, brightness: lit, alpha: 1))
+                }
             }
-        }
-        
-        // Next: look at Entities
-        for entity in world.entities {
-            console.putForeground(entity.name, at: entity.position, color: SKColor(calibratedHue: 0.1, saturation: 1, brightness: 1.0, alpha: 1))
+            
+            // Next: look at Entities
+            for entity in world.entities {
+                let visibility = vc.tileVisibility[entity.position, default: .notVisited]
+                switch visibility {
+                case .notVisited:
+                    break
+                case .visited:
+                    break
+                case .visible(let lit):
+                    console.putForeground(entity.name, at: entity.position, color: SKColor(calibratedHue: 0.2, saturation: 1, brightness: lit, alpha: 1))
+                }
+            }
         }
     }
     
