@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE00717E27F078FC00B4EA57 /* GKStateMachine+WorldUpdateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00717D27F078FC00B4EA57 /* GKStateMachine+WorldUpdateable.swift */; };
+		DE00718027F0794800B4EA57 /* OwnedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00717F27F0794800B4EA57 /* OwnedState.swift */; };
+		DE00718227F079A000B4EA57 /* PatrollingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00718127F079A000B4EA57 /* PatrollingState.swift */; };
+		DE00718427F079E300B4EA57 /* PersuingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00718327F079E300B4EA57 /* PersuingState.swift */; };
 		DE7D428927D9388800BD1A30 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428827D9388800BD1A30 /* Map.swift */; };
 		DE7D428B27D9402200BD1A30 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428A27D9402200BD1A30 /* World.swift */; };
 		DE7D428D27D942F000BD1A30 /* MSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428C27D942F000BD1A30 /* MSEntity.swift */; };
@@ -44,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE00717D27F078FC00B4EA57 /* GKStateMachine+WorldUpdateable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKStateMachine+WorldUpdateable.swift"; sourceTree = "<group>"; };
+		DE00717F27F0794800B4EA57 /* OwnedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedState.swift; sourceTree = "<group>"; };
+		DE00718127F079A000B4EA57 /* PatrollingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrollingState.swift; sourceTree = "<group>"; };
+		DE00718327F079E300B4EA57 /* PersuingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersuingState.swift; sourceTree = "<group>"; };
 		DE7D428827D9388800BD1A30 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		DE7D428A27D9402200BD1A30 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		DE7D428C27D942F000BD1A30 /* MSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSEntity.swift; sourceTree = "<group>"; };
@@ -92,9 +100,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE00717C27F078E900B4EA57 /* StateMachines */ = {
+			isa = PBXGroup;
+			children = (
+				DE00717D27F078FC00B4EA57 /* GKStateMachine+WorldUpdateable.swift */,
+				DE00717F27F0794800B4EA57 /* OwnedState.swift */,
+				DE00718127F079A000B4EA57 /* PatrollingState.swift */,
+				DE00718327F079E300B4EA57 /* PersuingState.swift */,
+			);
+			path = StateMachines;
+			sourceTree = "<group>";
+		};
 		DE7D428727D9384100BD1A30 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DE00717C27F078E900B4EA57 /* StateMachines */,
 				DE8DDA1427DF8EB200D4E92B /* WorldUpdateable.swift */,
 				DE8DDA1327DF8E9A00D4E92B /* Components */,
 				DE7D428827D9388800BD1A30 /* Map.swift */,
@@ -298,14 +318,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE8A336927EF22FD004FC576 /* Heading.swift in Sources */,
+				DE00717E27F078FC00B4EA57 /* GKStateMachine+WorldUpdateable.swift in Sources */,
 				DE8A336727EF2165004FC576 /* AI_SimplePatrolComponent.swift in Sources */,
+				DE00718027F0794800B4EA57 /* OwnedState.swift in Sources */,
 				DEF9A011279A9F94009F0244 /* ViewController.swift in Sources */,
 				DE8DDA1727DF8EED00D4E92B /* VisibilityComponent.swift in Sources */,
 				DEF9A00F279A9F94009F0244 /* GameScene.swift in Sources */,
 				DEDD86A627ABDF3E00BB2AB6 /* Vector.swift in Sources */,
 				DEF9A009279A9F94009F0244 /* AppDelegate.swift in Sources */,
 				DE8DDA1527DF8EB200D4E92B /* WorldUpdateable.swift in Sources */,
+				DE00718227F079A000B4EA57 /* PatrollingState.swift in Sources */,
 				DE7D428927D9388800BD1A30 /* Map.swift in Sources */,
+				DE00718427F079E300B4EA57 /* PersuingState.swift in Sources */,
 				DE7D428B27D9402200BD1A30 /* World.swift in Sources */,
 				DE7D428D27D942F000BD1A30 /* MSEntity.swift in Sources */,
 				DEF9A03A279AA0E5009F0244 /* SKonsole.swift in Sources */,

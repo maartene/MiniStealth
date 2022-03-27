@@ -36,8 +36,6 @@ class GameScene: SKScene {
         world.update()
         
         if let vc = world.player.component(ofType: VisibilityComponent.self) {
-            print(vc.tileVisibility)
-            
             for tile in vc.tileVisibility {
                 let mapCell = world.map.getCell(tile.key)
                 
