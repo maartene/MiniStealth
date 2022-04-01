@@ -12,6 +12,7 @@ class MSEntity: GKEntity, WorldUpdateable {
     
     var position: Vector
     let name: String
+    var heading: Heading = .North
     
     init(name: String, startPosition: Vector = .zero) {
         self.name = name

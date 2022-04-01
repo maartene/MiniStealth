@@ -25,6 +25,8 @@ final class World {
         
         for esp in map.enemySpawnPositions {
             let enemy = MSEntity(name: "Enemy", startPosition: esp)
+            enemy.addComponent(VisibilityComponent(visionRange: 7))
+            enemy.addComponent(AI_SimplePatrolComponent(owner: enemy, target: player))
             entities.append(enemy)
         }
         

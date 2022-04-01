@@ -36,8 +36,6 @@ class GameScene: SKScene {
         world.update()
         
         if let vc = world.player.component(ofType: VisibilityComponent.self) {
-            print(vc.tileVisibility)
-            
             for tile in vc.tileVisibility {
                 let mapCell = world.map.getCell(tile.key)
                 
@@ -48,6 +46,26 @@ class GameScene: SKScene {
                     console.putBackground(mapCell.name, at: tile.key, color: .darkGray)
                 case .visible(let lit):
                     console.putBackground(mapCell.name, at: tile.key, color: SKColor(calibratedHue: 0.5, saturation: 1, brightness: lit, alpha: 1))
+                }
+            }
+            
+            // color tiles where visibility between player and other entities overlaps in a different colour.
+            let otherVCs = world.entities.filter { $0 !== world.player }.compactMap { $0.component(ofType: VisibilityComponent.self) }
+
+            for otherVC in otherVCs {
+                let overlappingTiles = overlappingTiles(vc.tileVisibility, otherVC.tileVisibility)
+
+                for tile in overlappingTiles {
+                    let mapCell = world.map.getCell(tile.key)
+                    
+                    switch tile.value {
+                    case .notVisited:
+                        break
+                    case .visited:
+                        break
+                    case .visible(let lit):
+                        console.putBackground(mapCell.name, at: tile.key, color: SKColor(calibratedHue: 0.1, saturation: 1, brightness: lit, alpha: 1))
+                    }
                 }
             }
             
@@ -64,6 +82,22 @@ class GameScene: SKScene {
                 }
             }
         }
+    }
+    
+    func overlappingTiles(_ tiles1: [Vector: Visibility], _ tiles2: [Vector: Visibility]) -> [Vector: Visibility] {
+        let visibleTiles1 = tiles1.filter { $0.value.isVisible }
+        let visibleTiles2 = tiles2.filter { $0.value.isVisible }
+        
+        let coordSet1 = Set<Vector>(visibleTiles1.keys)
+        let coordSet2 = Set<Vector>(visibleTiles2.keys)
+        
+        let intersection = coordSet1.intersection(coordSet2)
+        
+        var result = [Vector: Visibility]()
+        for coord in intersection {
+            result[coord] = tiles1[coord]
+        }
+        return result
     }
     
     override func keyDown(with event: NSEvent) {
