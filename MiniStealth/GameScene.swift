@@ -64,7 +64,7 @@ class GameScene: SKScene {
                     case .visited:
                         break
                     case .visible(let lit):
-                        console.putBackground(mapCell.name, at: tile.key, color: SKColor(calibratedHue: 0.1, saturation: 1, brightness: 1.0, alpha: lit))
+                        console.putBackground(mapCell.name, at: tile.key, color: SKColor(calibratedHue: 0.1, saturation: 1, brightness: lit, alpha: 1))
                     }
                 }
             }
