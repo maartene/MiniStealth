@@ -11,6 +11,16 @@ struct Vector {
     var x: Int
     var y: Int
     
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+    
+    init(x: Int32, y: Int32) {
+        self.x = Int(x)
+        self.y = Int(y)
+    }
+    
     // MARK: computed properties to quickly get common values
     static var zero: Vector {
         Vector(x: 0, y: 0)
@@ -45,6 +55,8 @@ struct Vector {
         let vector = v1 - v2
         return sqrt(Double(vector.x * vector.x + vector.y * vector.y))
     }
+    
+    
 }
 
 extension Vector: Hashable {}
