@@ -3,6 +3,12 @@ Simple 'console' based roguelike/stealth game using SpriteKit and GameplayKit
 
 In this tutorial series we're going to create a simple roguelike/stealth game using SpriteKit and GameplayKit. We will use SpriteKit to simulate a text based console (but we'll also use graphics), use GameplayKit for pathfinding and look at some common algorithms/patterns for visibility and AI.
 
+GameplayKit features we're using in this series:
+* Entity Component System: GKEntity & GKComponent
+* State Machines: GKStateMachine & GKState
+* Pathfinding: GKGridGraph & GKGridGraphNode
+* Rule system: GKRuleSystem & GKRule
+
 Original artwork: [1-Bit Pack by Kenney](https://kenney.nl/assets/bit-pack)
 
 * Youtube playlist: https://youtube.com/playlist?list=PLhUrOtMlcKDD0OACHdRfUjKcpJfS-fcST 
