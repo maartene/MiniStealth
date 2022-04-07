@@ -109,7 +109,7 @@ final class SKonsole: SKNode {
         node.isHidden = false
     }
     
-    func putChar(_ character: Character, at position: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil) {
+    func putChar(_ character: Character, at position: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil, alignment: Alignment = .left) {
         let textureName = characterTranslationTable[character] ?? String(character)
         
         putForeground(textureName, at: position, color: fgColor)
@@ -119,8 +119,13 @@ final class SKonsole: SKNode {
         }
     }
     
-    func putString(_ string: String, at position: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil) {
+    func putString(_ string: String, at position: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil, alignment: Alignment = .left) {
         var cursor = position
+        
+        if alignment == .center {
+            cursor.x = colCount / 2 - string.count / 2
+        }
+        
         for character in string {
             putChar(character, at: cursor, fgColor: fgColor, bgColor: bgColor)
             cursor.x += 1
@@ -154,4 +159,8 @@ final class SKonsole: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    enum Alignment {
+        case left
+        case center
+    }
 }

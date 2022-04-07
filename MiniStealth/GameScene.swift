@@ -25,12 +25,18 @@ class GameScene: SKScene {
         
         showWorld()
         
-        // draw a string
-        console.putString("Hello, World!", at: Vector(x: 3, y: 25), fgColor: .green, bgColor: SKColor.red)
-        
+        console.putString("WELCOME TO MINI-STEALTH!", at: Vector(x: 0, y: ROW_COUNT - 1), fgColor: .white, bgColor: .blue, alignment: .center)
+        console.putString("========================", at: Vector(x: 0, y: ROW_COUNT - 2), alignment: .center)
+        console.putString("Arrow keys to move, 'space' to wait.", at: Vector(x: 0, y: ROW_COUNT - 3), alignment: .center)
+        console.putString("Capture the treasure. And don't get caught!", at: Vector(x: 0, y: ROW_COUNT - 4), alignment: .center)
     }
     
     func showWorld() {
+        // center the map on the screen by calculating an offset to apply to all map coordinates
+        let offset = Vector(x: COL_COUNT / 2 - world.map.size.x
+                             / 2,
+                            y: ROW_COUNT / 2 - world.map.size.y / 2)
+        
         console.clear()
         
         world.update()
@@ -43,9 +49,9 @@ class GameScene: SKScene {
                 case .notVisited:
                     break
                 case .visited:
-                    console.putBackground(mapCell.name, at: tile.key, color: .darkGray)
+                    console.putBackground(mapCell.name, at: tile.key + offset, color: .darkGray)
                 case .visible(let lit):
-                    console.putBackground(mapCell.name, at: tile.key, color: SKColor(calibratedHue: 0.5, saturation: 1, brightness: lit, alpha: 1))
+                    console.putBackground(mapCell.name, at: tile.key + offset, color: SKColor(calibratedHue: 0.5, saturation: 1, brightness: lit, alpha: 1))
                 }
             }
             
@@ -64,7 +70,7 @@ class GameScene: SKScene {
                     case .visited:
                         break
                     case .visible(let lit):
-                        console.putBackground(mapCell.name, at: tile.key, color: SKColor(calibratedHue: 0.1, saturation: 1, brightness: lit, alpha: 1))
+                        console.putBackground(mapCell.name, at: tile.key + offset, color: SKColor(calibratedHue: 0.1, saturation: 1, brightness: lit, alpha: 1))
                     }
                 }
             }
@@ -78,10 +84,24 @@ class GameScene: SKScene {
                 case .visited:
                     break
                 case .visible(let lit):
-                    console.putForeground(entity.name, at: entity.position, color: SKColor(calibratedHue: 0.2, saturation: 1, brightness: lit, alpha: 1))
+                    console.putForeground(entity.name, at: entity.position + offset, color: SKColor(calibratedHue: 0.2, saturation: 1, brightness: lit, alpha: 1))
                 }
             }
         }
+        
+        for event in Event.eventList {
+            switch event {
+            case .alert(let coord):
+                console.putChar("!", at: coord + offset, fgColor: .white, bgColor: .red)
+                playSound(named: "Metal Gear Alert Sound Effect.aiff")
+            default:
+                console.putString("Received event: \(event).", at: Vector(x: 1, y: 1))
+            }
+        }
+        
+        Event.eventList.removeAll()
+        
+        console.putString("Player position: \(world.player.position.x),\(world.player.position.y)", at: Vector.zero)
     }
     
     func overlappingTiles(_ tiles1: [Vector: Visibility], _ tiles2: [Vector: Visibility]) -> [Vector: Visibility] {
@@ -131,5 +151,10 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func playSound(named filename: String) {
+        let action = SKAction.playSoundFileNamed(filename, waitForCompletion: false)
+        run(action)
     }
 }
