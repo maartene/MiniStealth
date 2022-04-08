@@ -56,7 +56,9 @@ class GameScene: SKScene {
             }
             
             // color tiles where visibility between player and other entities overlaps in a different colour.
-            let otherVCs = world.entities.filter { $0 !== world.player }.compactMap { $0.component(ofType: VisibilityComponent.self) }
+            let otherVCs = world.entities
+                .filter { $0 !== world.player } // we want all entities except the player
+                .compactMap { $0.component(ofType: VisibilityComponent.self) } // we only want the visual components
 
             for otherVC in otherVCs {
                 let overlappingTiles = overlappingTiles(vc.tileVisibility, otherVC.tileVisibility)
@@ -89,6 +91,7 @@ class GameScene: SKScene {
             }
         }
         
+        // Process events
         for event in Event.eventList {
             switch event {
             case .alert(let coord):
@@ -101,6 +104,7 @@ class GameScene: SKScene {
         
         Event.eventList.removeAll()
         
+        // Show player position on screen.
         console.putString("Player position: \(world.player.position.x),\(world.player.position.y)", at: Vector.zero)
     }
     
