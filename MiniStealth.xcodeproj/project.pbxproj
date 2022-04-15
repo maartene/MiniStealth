@@ -11,6 +11,8 @@
 		DE00718027F0794800B4EA57 /* OwnedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00717F27F0794800B4EA57 /* OwnedState.swift */; };
 		DE00718227F079A000B4EA57 /* PatrollingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00718127F079A000B4EA57 /* PatrollingState.swift */; };
 		DE00718427F079E300B4EA57 /* PersuingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00718327F079E300B4EA57 /* PersuingState.swift */; };
+		DE45B66727FEE1790068E7EE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45B66627FEE1790068E7EE /* Event.swift */; };
+		DE45B66A27FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = DE45B66927FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff */; };
 		DE7D428927D9388800BD1A30 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428827D9388800BD1A30 /* Map.swift */; };
 		DE7D428B27D9402200BD1A30 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428A27D9402200BD1A30 /* World.swift */; };
 		DE7D428D27D942F000BD1A30 /* MSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428C27D942F000BD1A30 /* MSEntity.swift */; };
@@ -52,6 +54,8 @@
 		DE00717F27F0794800B4EA57 /* OwnedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnedState.swift; sourceTree = "<group>"; };
 		DE00718127F079A000B4EA57 /* PatrollingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatrollingState.swift; sourceTree = "<group>"; };
 		DE00718327F079E300B4EA57 /* PersuingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersuingState.swift; sourceTree = "<group>"; };
+		DE45B66627FEE1790068E7EE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		DE45B66927FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Metal Gear Alert Sound Effect.aiff"; sourceTree = "<group>"; };
 		DE7D428827D9388800BD1A30 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		DE7D428A27D9402200BD1A30 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		DE7D428C27D942F000BD1A30 /* MSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSEntity.swift; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 			path = StateMachines;
 			sourceTree = "<group>";
 		};
+		DE45B66827FEE2A60068E7EE /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				DE45B66927FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		DE7D428727D9384100BD1A30 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 				DE7D428A27D9402200BD1A30 /* World.swift */,
 				DE7D428C27D942F000BD1A30 /* MSEntity.swift */,
 				DE8A336827EF22FD004FC576 /* Heading.swift */,
+				DE45B66627FEE1790068E7EE /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +170,7 @@
 		DEF9A007279A9F94009F0244 /* MiniStealth */ = {
 			isa = PBXGroup;
 			children = (
+				DE45B66827FEE2A60068E7EE /* Audio */,
 				DE7D428727D9384100BD1A30 /* Model */,
 				DEF9A008279A9F94009F0244 /* AppDelegate.swift */,
 				DEF9A00E279A9F94009F0244 /* GameScene.swift */,
@@ -292,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEF9A013279A9F96009F0244 /* Assets.xcassets in Resources */,
+				DE45B66A27FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff in Resources */,
 				DEF9A016279A9F96009F0244 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +340,7 @@
 				DE8DDA1727DF8EED00D4E92B /* VisibilityComponent.swift in Sources */,
 				DEF9A00F279A9F94009F0244 /* GameScene.swift in Sources */,
 				DEDD86A627ABDF3E00BB2AB6 /* Vector.swift in Sources */,
+				DE45B66727FEE1790068E7EE /* Event.swift in Sources */,
 				DEF9A009279A9F94009F0244 /* AppDelegate.swift in Sources */,
 				DE8DDA1527DF8EB200D4E92B /* WorldUpdateable.swift in Sources */,
 				DE00718227F079A000B4EA57 /* PatrollingState.swift in Sources */,
