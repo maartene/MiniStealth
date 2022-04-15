@@ -109,7 +109,7 @@ final class SKonsole: SKNode {
         node.isHidden = false
     }
     
-    func putChar(_ character: Character, at position: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil, alignment: Alignment = .left) {
+    func putChar(_ character: Character, at position: Vector, fgColor: SKColor = .white, bgColor: SKColor? = nil) {
         let textureName = characterTranslationTable[character] ?? String(character)
         
         putForeground(textureName, at: position, color: fgColor)

@@ -27,7 +27,7 @@ class GameScene: SKScene {
         
         console.putString("WELCOME TO MINI-STEALTH!", at: Vector(x: 0, y: ROW_COUNT - 1), fgColor: .white, bgColor: .blue, alignment: .center)
         console.putString("========================", at: Vector(x: 0, y: ROW_COUNT - 2), alignment: .center)
-        console.putString("Arrow keys to move, 'space' to wait.", at: Vector(x: 0, y: ROW_COUNT - 3), alignment: .center)
+        console.putString("Arrow keys to move.", at: Vector(x: 0, y: ROW_COUNT - 3), alignment: .center)
         console.putString("Capture the treasure. And don't get caught!", at: Vector(x: 0, y: ROW_COUNT - 4), alignment: .center)
     }
     
