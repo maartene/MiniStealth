@@ -140,21 +140,39 @@ class GameScene: SKScene {
         // up arrow
         case 126:
             direction = Vector.up
+        // 'r'
+        case 15:
+            restart()
             
         default:
             print("keyDown: \(event.characters!) keyCode: \(event.keyCode)")
         }
         
-        if world.player.tryMove(direction: direction, in: world.map) {
-            showWorld()
-        } else {
-            console.putString("BOINK!", at: Vector.zero, fgColor: .white, bgColor: .red)
+        if world.state == .playing {
+            if world.player.tryMove(direction: direction, in: world.map) {
+                showWorld()
+                
+                if world.state == .won {
+                    console.putString("You Won! Press 'r' to play again.", at: Vector(x: 0, y: ROW_COUNT / 2), fgColor: .white, bgColor: .green, alignment: .center)
+                } else if world.state == .lost {
+                    console.putString("You Lost :(. Press 'r' to try again.", at: Vector(x: 0, y: ROW_COUNT / 2), fgColor: .white, bgColor: .red, alignment: .center)
+                }
+            } else {
+                console.putString("BOINK!", at: Vector.zero, fgColor: .white, bgColor: .red)
+            }
         }
     }
     
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
+    }
+    
+    func restart() {
+        //print("Current level index \(currentLevelIndex)")
+        world = World(mapString: Map.mapStrings[0])
+        
+        showWorld()
     }
     
     func playSound(named filename: String) {
