@@ -20,7 +20,7 @@ final class World {
         map = Map(mapString: mapString)
         
         player = MSEntity(name: "Player", startPosition: map.playerStartPosition)
-        player.addComponent(VisibilityComponent(visionRange: 10))
+        player.addComponent(VisibilityComponent(visionRange: 10, headingRelevant: false))
         entities.append(player)
         
         let target = MSEntity(name: "Treasure", startPosition: map.targetPosition)
@@ -28,7 +28,7 @@ final class World {
         
         for esp in map.enemySpawnPositions {
             let enemy = MSEntity(name: "Enemy", startPosition: esp)
-            enemy.addComponent(VisibilityComponent(visionRange: 2))
+            enemy.addComponent(VisibilityComponent(visionRange: 7, headingRelevant: true))
             enemy.addComponent(AI_SimplePatrolComponent(owner: enemy, target: player))
             entities.append(enemy)
         }

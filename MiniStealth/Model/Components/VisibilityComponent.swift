@@ -12,9 +12,11 @@ final class VisibilityComponent: GKComponent, WorldUpdateable {
     let visionRange: Int
     
     var tileVisibility = [Vector: Visibility]()
+    let headingRelevant: Bool
     
-    init(visionRange: Int) {
+    init(visionRange: Int, headingRelevant: Bool) {
         self.visionRange = visionRange
+        self.headingRelevant = headingRelevant
         super.init()
     }
     
@@ -35,8 +37,15 @@ final class VisibilityComponent: GKComponent, WorldUpdateable {
     func updateVisibility(map: Map) {
         clearVisibility()
         
-        for i in 0 ... 7 {
-            refreshOctant(map: map, octant: i)
+        if headingRelevant {
+            headingOctantMap[msEntity.heading]?.forEach { octantIndex in
+                refreshOctant(map: map, octant: octantIndex)
+            }
+        } else {
+            // loop through all the octants
+            for i in 0 ... 7 {
+                refreshOctant(map: map, octant: i)
+            }
         }
     }
     
@@ -189,6 +198,17 @@ final class VisibilityComponent: GKComponent, WorldUpdateable {
         }
         
     }
+    
+    private let headingOctantMap: [Heading: [Int]] = [
+        .North: [3,4],
+        .NorthEast: [2,3],
+        .East: [1,2],
+        .SouthEast: [0,1],
+        .South: [0,7],
+        .SouthWest: [7,6],
+        .West: [5,6],
+        .NorthWest: [4,5]
+    ]
 }
 
 
