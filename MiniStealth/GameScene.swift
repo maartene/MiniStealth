@@ -108,7 +108,7 @@ class GameScene: SKScene {
         Event.eventList.removeAll()
         
         // Show player position on screen.
-        console.putString("Player position: \(world.player.position.x),\(world.player.position.y)", at: Vector.zero)
+        console.putString("Player position: \(world.player.position.x),\(world.player.position.y) (level: \(currentLevelIndex))", at: Vector.zero)
     }
     
     func overlappingTiles(_ tiles1: [Vector: Visibility], _ tiles2: [Vector: Visibility]) -> [Vector: Visibility] {
