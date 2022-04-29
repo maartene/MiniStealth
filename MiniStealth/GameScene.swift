@@ -16,12 +16,15 @@ class GameScene: SKScene {
     var console: SKonsole!
     var world: World!
     
+    var currentLevelIndex = 0
+    
     override func didMove(to view: SKView) {
         
         console = SKonsole(colCount: COL_COUNT, rowCount: ROW_COUNT)
         addChild(console)
         
-        world = World(mapString: Map.mapStrings[0])
+        //world = World(mapString: Map.mapStrings[0])
+        restart()
         
         showWorld()
         
@@ -153,7 +156,8 @@ class GameScene: SKScene {
                 showWorld()
                 
                 if world.state == .won {
-                    console.putString("You Won! Press 'r' to play again.", at: Vector(x: 0, y: ROW_COUNT / 2), fgColor: .white, bgColor: .green, alignment: .center)
+                    console.putString("You Won! Press 'r' to go to next level.", at: Vector(x: 0, y: ROW_COUNT / 2), fgColor: .white, bgColor: .green, alignment: .center)
+                    currentLevelIndex = (currentLevelIndex + 1) % Map.mapStrings.count
                 } else if world.state == .lost {
                     console.putString("You Lost :(. Press 'r' to try again.", at: Vector(x: 0, y: ROW_COUNT / 2), fgColor: .white, bgColor: .red, alignment: .center)
                 }
@@ -170,7 +174,7 @@ class GameScene: SKScene {
     
     func restart() {
         //print("Current level index \(currentLevelIndex)")
-        world = World(mapString: Map.mapStrings[0])
+        world = World(mapString: Map.mapStrings[currentLevelIndex])
         
         showWorld()
     }
