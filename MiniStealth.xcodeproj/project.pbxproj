@@ -13,6 +13,7 @@
 		DE00718427F079E300B4EA57 /* PersuingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE00718327F079E300B4EA57 /* PersuingState.swift */; };
 		DE45B66727FEE1790068E7EE /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE45B66627FEE1790068E7EE /* Event.swift */; };
 		DE45B66A27FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff in Resources */ = {isa = PBXBuildFile; fileRef = DE45B66927FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff */; };
+		DE5B1EAB282530A30051D600 /* AI_SurveillanceCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5B1EAA282530A30051D600 /* AI_SurveillanceCamera.swift */; };
 		DE7D428927D9388800BD1A30 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428827D9388800BD1A30 /* Map.swift */; };
 		DE7D428B27D9402200BD1A30 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428A27D9402200BD1A30 /* World.swift */; };
 		DE7D428D27D942F000BD1A30 /* MSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7D428C27D942F000BD1A30 /* MSEntity.swift */; };
@@ -56,6 +57,7 @@
 		DE00718327F079E300B4EA57 /* PersuingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersuingState.swift; sourceTree = "<group>"; };
 		DE45B66627FEE1790068E7EE /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		DE45B66927FEE2B80068E7EE /* Metal Gear Alert Sound Effect.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = "Metal Gear Alert Sound Effect.aiff"; sourceTree = "<group>"; };
+		DE5B1EAA282530A30051D600 /* AI_SurveillanceCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AI_SurveillanceCamera.swift; sourceTree = "<group>"; };
 		DE7D428827D9388800BD1A30 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		DE7D428A27D9402200BD1A30 /* World.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
 		DE7D428C27D942F000BD1A30 /* MSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSEntity.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				DE8DDA1627DF8EED00D4E92B /* VisibilityComponent.swift */,
 				DE8A336627EF2165004FC576 /* AI_SimplePatrolComponent.swift */,
+				DE5B1EAA282530A30051D600 /* AI_SurveillanceCamera.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				DE7D428927D9388800BD1A30 /* Map.swift in Sources */,
 				DE00718427F079E300B4EA57 /* PersuingState.swift in Sources */,
 				DE7D428B27D9402200BD1A30 /* World.swift in Sources */,
+				DE5B1EAB282530A30051D600 /* AI_SurveillanceCamera.swift in Sources */,
 				DE7D428D27D942F000BD1A30 /* MSEntity.swift in Sources */,
 				DEF9A03A279AA0E5009F0244 /* SKonsole.swift in Sources */,
 			);

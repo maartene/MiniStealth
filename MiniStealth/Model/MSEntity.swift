@@ -12,10 +12,12 @@ class MSEntity: GKEntity, WorldUpdateable {
     
     var position: Vector
     let name: String
+    let team: Team
     var heading: Heading = .North
     
-    init(name: String, startPosition: Vector = .zero) {
+    init(name: String, team: Team, startPosition: Vector = .zero) {
         self.name = name
+        self.team = team
         self.position = startPosition
         
         super.init()
@@ -56,4 +58,8 @@ extension GKComponent {
         
         return msEntity
     }
+}
+
+enum Team {
+    case Player, Enemy, Neutral
 }

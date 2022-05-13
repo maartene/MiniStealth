@@ -27,7 +27,7 @@ struct Map {
         #...#
         #...#
   #######...#######
-  #...............#
+  #C..............#
   #...............#
   #.......@.......#
   #...............#
@@ -49,7 +49,7 @@ struct Map {
         #...#
         #...#
   #######...#######
-  #...............#
+  #C..............#
   #.......#.......#
   #.......@.......#
   #...............#
@@ -63,6 +63,7 @@ struct Map {
     var playerStartPosition = Vector.zero
     var targetPosition = Vector.zero
     var enemySpawnPositions = [Vector]()
+    var cameraSpawnPositions = [Vector]()
     
     let size: Vector
     
@@ -92,6 +93,10 @@ struct Map {
                     cells[coord] = .floor
                 } else if character == "E" {
                     enemySpawnPositions.append(coord)
+                    // assume there's a floor under the enemy's start position
+                    cells[coord] = .floor
+                } else if character == "C" {
+                    cameraSpawnPositions.append(coord)
                     // assume there's a floor under the enemy's start position
                     cells[coord] = .floor
                 } else {
