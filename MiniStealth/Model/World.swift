@@ -19,18 +19,25 @@ final class World {
     init(mapString: String) {
         map = Map(mapString: mapString)
         
-        player = MSEntity(name: "Player", startPosition: map.playerStartPosition)
+        player = MSEntity(name: "Player", team: .Player, startPosition: map.playerStartPosition)
         player.addComponent(VisibilityComponent(visionRange: 10, headingRelevant: false))
         entities.append(player)
         
-        let target = MSEntity(name: "Treasure", startPosition: map.targetPosition)
+        let target = MSEntity(name: "Treasure", team: .Neutral, startPosition: map.targetPosition)
         entities.append(target)
         
         for esp in map.enemySpawnPositions {
-            let enemy = MSEntity(name: "Enemy", startPosition: esp)
+            let enemy = MSEntity(name: "Enemy", team: .Enemy, startPosition: esp)
             enemy.addComponent(VisibilityComponent(visionRange: 7, headingRelevant: true))
             enemy.addComponent(AI_SimplePatrolComponent(owner: enemy, target: player))
             entities.append(enemy)
+        }
+        
+        for csp in map.cameraSpawnPositions {
+            let camera = MSEntity(name: "Surveillance Camera", team: .Enemy, startPosition: csp)
+            camera.addComponent(VisibilityComponent(visionRange: 5, headingRelevant: true))
+            camera.addComponent(AI_SurveillanceCamera())
+            entities.append(camera)
         }
         
     }
@@ -71,7 +78,7 @@ final class World {
                     fatalError("This rule requires that a World instance is part of the state.")
                 }
                 
-                let enemies = world.entities.filter { $0.name == "Enemy" }
+                let enemies = world.entities.filter { $0.team == .Enemy }
                 for enemy in enemies {
                     if enemy.position == world.player.position {
                         return true

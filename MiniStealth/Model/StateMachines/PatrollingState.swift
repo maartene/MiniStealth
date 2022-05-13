@@ -25,12 +25,10 @@ final class PatrollingState: GKState, WorldUpdateable, OwnedState {
     
     func update(in world: World) {
         // Can we spot the target?
-        if let vc = owner.component(ofType: VisibilityComponent.self) {
-            if vc.tileVisibility[target.position]?.isVisible ?? false {
-                _ = stateMachine?.enter(PersuingState.self)
-                Event.eventList.append(.alert(coord: owner.position))
-                return
-            }
+        if canWeSpotThePlayer(in: world) || canASurveilanceCameraSeeThePlayer(in: world) {
+            _ = stateMachine?.enter(PersuingState.self)
+            Event.eventList.append(.alert(coord: owner.position))
+            return
         }
         
         // Patrol
@@ -40,5 +38,28 @@ final class PatrollingState: GKState, WorldUpdateable, OwnedState {
             
             owner.heading = Heading(rawValue: newHeadingRawValue) ?? owner.heading
         }
+    }
+    
+    private func canWeSpotThePlayer(in world: World) -> Bool {
+        // Can we spot the target?
+        if let vc = owner.component(ofType: VisibilityComponent.self) {
+            if vc.tileVisibility[target.position]?.isVisible ?? false {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private func canASurveilanceCameraSeeThePlayer(in world: World) -> Bool {
+        let surveillanceCameras = world.entities.filter { $0.name == "Surveillance Camera"}
+        for camera in surveillanceCameras {
+            if let vc = camera.component(ofType: VisibilityComponent.self) {
+                if vc.tileVisibility[world.player.position]?.isVisible ?? false {
+                    return true
+                }
+            }
+        }
+        return false
     }
 }
